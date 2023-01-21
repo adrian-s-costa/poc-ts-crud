@@ -2,7 +2,8 @@ import { connection } from "../database/pg.js";
 import { QueryResult } from "pg";
 import { ProductEntity } from "../protocols/product.js";
 
-export function allProducts(): Promise<QueryResult<ProductEntity>> {
-    return connection.query("SELECT * FROM produtos;");
+export async function allProducts(): Promise<QueryResult<ProductEntity>> {
+    const products = await connection.query("SELECT * FROM produtos;");
+    return products.rows;
 }
 
