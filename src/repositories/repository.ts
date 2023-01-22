@@ -16,3 +16,11 @@ export async function insertProduct(newProduct: Product): Promise<QueryResult<Pr
     }
 }
 
+export async function deleteProduct(id: number): Promise<QueryResult<ProductEntity>> {
+    try{
+        return await connection.query("DELETE FROM produtos WHERE id = $1;", [id]);
+    }catch{
+        throw Error;
+    }
+}
+

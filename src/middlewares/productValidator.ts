@@ -12,4 +12,10 @@ export function validateProduct(req: Request, res: Response, next: NextFunction)
     }
     next();
 }
-ProductSchema
+
+export function validateQuery(req: Request, res: Response, next: NextFunction){
+    if(!req.query.id){
+        return res.status(400).send("Essa rota precisa de um id na query!");
+    }
+    next();
+}

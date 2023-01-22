@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { getProducts, postProduct } from '../controllers/productController.js';
-import { validateProduct } from '../middlewares/productValidator.js';
+import { getProducts, postProduct, deleteProduct } from '../controllers/productController.js';
+import { validateProduct, validateQuery } from '../middlewares/productValidator.js';
 
 const router = Router();
 
 router.get("/products", getProducts);
-router.post("/product", validateProduct, postProduct)
+router.post("/products", validateProduct, postProduct);
+router.delete("/teste", validateQuery, deleteProduct);
 
 export default router;
