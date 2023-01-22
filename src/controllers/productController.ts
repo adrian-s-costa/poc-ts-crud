@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
-import { prodService, insertNewProducts, deleteUniqueProduct, updateUniqueProduct} from "../services/productService.js";
+import { prodService, insertNewProducts, deleteUniqueProduct, updateUniqueProduct, prodServiceQuery} from "../services/productService.js";
 import { ProductEntity } from "../protocols/product.js";
 import { QueryResult } from "pg";
 import { Product } from "../protocols/product.js";
 
 export async function getProducts(req: Request, res: Response): Promise<QueryResult<ProductEntity>>{
+    if(req.query.price == "true"){
+        const products = await prodServiceQuery();
+        return res.send(products).status(200);
+    }
     const products = await prodService();
     return res.send(products).status(200);
 }
@@ -17,7 +21,6 @@ export async function postProduct(req: Request, res: Response): Promise<QueryRes
     }catch{
         res.sendStatus(400);
     }
-    
 }
 
 export async function deleteProduct(req: Request, res: Response): Promise<QueryResult<ProductEntity>>{

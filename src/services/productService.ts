@@ -1,10 +1,15 @@
-import { allProducts, insertProduct, deleteProduct, updateProduct } from "../repositories/repository.js";
+import { allProducts, insertProduct, deleteProduct, updateProduct, allProductsQuery } from "../repositories/repository.js";
 import { QueryResult } from "pg";
 import { ProductEntity, ProductUpdate } from "../protocols/product.js";
 import { Product } from "../protocols/product.js";
 
 export async function prodService(): Promise<QueryResult<ProductEntity>>{
     const products = await allProducts();
+    return products;
+}
+
+export async function prodServiceQuery(): Promise<QueryResult<ProductEntity>>{
+    const products = await allProductsQuery();
     return products;
 }
 

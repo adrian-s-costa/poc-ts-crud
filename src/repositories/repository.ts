@@ -8,6 +8,11 @@ export async function allProducts(): Promise<QueryResult<ProductEntity>> {
     return products.rows;
 }
 
+export async function allProductsQuery(): Promise<QueryResult<ProductEntity>> {
+    const products = await connection.query("SELECT * FROM produtos ORDER BY quantidade DESC;");
+    return products.rows;
+}
+
 export async function insertProduct(newProduct: Product): Promise<QueryResult<ProductEntity>> {
     try{
         return await connection.query("INSERT INTO produtos (nome, descricao, quantidade) VALUES ($1, $2, $3);", [newProduct.nome, newProduct.descricao, newProduct.quantidade]);
