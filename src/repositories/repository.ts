@@ -1,6 +1,6 @@
 import { connection } from "../database/pg.js";
 import { QueryResult } from "pg";
-import { ProductEntity } from "../protocols/product.js";
+import { ProductEntity, ProductUpdate } from "../protocols/product.js";
 import { Product } from "../protocols/product.js";
 
 export async function allProducts(): Promise<QueryResult<ProductEntity>> {
@@ -24,3 +24,10 @@ export async function deleteProduct(id: number): Promise<QueryResult<ProductEnti
     }
 }
 
+export async function updateProduct(id: number, body: ProductUpdate): Promise<QueryResult<ProductEntity>> {
+    try{
+        return await connection.query("UPDATE produtos SET nome = $1, descricao = $2, quantidade = $3 WHERE id = $4" , [body.nome, body.descricao, body.quantidade, id]);
+    }catch{
+        throw Error;
+    }
+}

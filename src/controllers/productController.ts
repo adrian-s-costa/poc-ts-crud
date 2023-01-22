@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { prodService, insertNewProducts, deleteUniqueProduct} from "../services/productService.js";
+import { prodService, insertNewProducts, deleteUniqueProduct, updateUniqueProduct} from "../services/productService.js";
 import { ProductEntity } from "../protocols/product.js";
 import { QueryResult } from "pg";
 import { Product } from "../protocols/product.js";
@@ -29,3 +29,15 @@ export async function deleteProduct(req: Request, res: Response): Promise<QueryR
         return res.sendStatus(404);
     }
 }
+
+export async function updateProduct(req: Request, res: Response): Promise<QueryResult<ProductEntity>>{
+    try{
+        const idProduct = parseInt(req.query.id);
+        const prodToUpdate = req.body
+        const result = await updateUniqueProduct(idProduct, prodToUpdate);
+        return res.status(result.status).send(result.message);
+    }catch{
+        return res.sendStatus(404);
+    }
+}
+

@@ -6,3 +6,5 @@ export type ProductEntity = {
 }
 
 export type Product = Omit<ProductEntity, "id">
+
+export type ProductUpdate = Partial<Product>
