@@ -21,13 +21,16 @@ API Gerenciamento de estoque utiliza as tecnologias:
 ## Rotas
 
 ### GET /products
-<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/get.png?raw=true' alt="get api/states">
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/poc-get.png?raw=true' alt="get /products">
 
 ### POST /products
-<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/post.png?raw=true' alt="post api/states">
-
-### DELETE /products?id
-<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/getId.png?raw=true' alt="get api/states{id}">
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/poc-post.png?raw=true' alt="post /products">
 
 ### PUT /products?id
-<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/put.png?raw=true' alt="put api/states{id}">
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/poc-put.png?raw=true' alt="put /products?id">
+
+### DELETE /products?id
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/delete-poc.png?raw=true' alt="delete /products?id">
+
+### GET /products?price=true
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/poc-get-filtro.png?raw=true' alt="get /products?price=true">
