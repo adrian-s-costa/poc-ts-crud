@@ -1,4 +1,4 @@
-## Api Gerenciamento de estoque [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+## API Gerenciamento de estoque [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 API CRUD básica feita para controle de estoque de produtos
 
@@ -10,7 +10,7 @@ API CRUD básica feita para controle de estoque de produtos
 
 ## Tecnologias
 
-Api Gerenciamento de estoque utiliza as tecnologias:
+API Gerenciamento de estoque utiliza as tecnologias:
 
 - TypeScript - Linguagem
 - Node.js - Ambeinte de execução
