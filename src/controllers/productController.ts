@@ -25,7 +25,7 @@ export async function postProduct(req: Request, res: Response): Promise<QueryRes
 
 export async function deleteProduct(req: Request, res: Response): Promise<QueryResult<ProductEntity>>{
     try{
-        const idProduct = parseInt(req.query.id);
+        const idProduct = parseInt(req.params.productId);
         const result = await deleteUniqueProduct(idProduct);
         return res.status(result.status).send(result.message);
     }catch{
@@ -35,9 +35,9 @@ export async function deleteProduct(req: Request, res: Response): Promise<QueryR
 
 export async function updateProduct(req: Request, res: Response): Promise<QueryResult<ProductEntity>>{
     try{
-        const idProduct = parseInt(req.query.id);
+        const idProduct = parseInt(req.params.productId);
         const prodToUpdate = req.body
-        const result = await updateUniqueProduct(idProduct, prodToUpdate);
+        const result = await updateUniqueProduct(prodToUpdate, idProduct);
         return res.status(result.status).send(result.message);
     }catch{
         return res.sendStatus(404);

@@ -25,38 +25,34 @@ export async function insertNewProducts(newProduct: Product): Promise<QueryResul
 export async function deleteUniqueProduct(id: number): Promise<QueryResult<ProductEntity>>{
     try{
         const productDeleted = await deleteProduct(id);
-        if(productDeleted.rowCount > 0){
+        if(productDeleted){
             return {
                 status: 200,
-                message: `Produto deletado com sucesso, linhas deletadas: ${productDeleted.rowCount}`
+                message: `Produto deletado com sucesso, linha deletada: ${productDeleted}`
             }
         }
-
         return {
             status: 404,
             message: "Nenhum produto foi encontrado com esse ID"
         };
-        
     }catch{
         throw Error;
     }
 }
 
-export async function updateUniqueProduct(id: number, body: ProductUpdate): Promise<QueryResult<ProductEntity>>{
+export async function updateUniqueProduct(body: ProductUpdate, id: number): Promise<QueryResult<ProductEntity>>{
     try{
-        const productUpdated = await updateProduct(id, body);
-        if(productUpdated.rowCount > 0){
+        const productUpdated = await updateProduct(body, id);
+        if(productUpdated){
             return {
                 status: 200,
-                message: `Produto atualizado com sucesso, linhas atualizadas: ${productUpdated.rowCount}`
+                message: `Produto deletado com sucesso, linha deletada: ${productUpdated}`
             }
         }
-
         return {
             status: 404,
             message: "Nenhum produto foi encontrado com esse ID"
-        };
-        
+        };    
     }catch{
         throw Error;
     }

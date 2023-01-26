@@ -6,7 +6,6 @@ const router = Router();
 
 router.get("/products", getProducts);
 router.post("/products", validateProduct, postProduct);
-router.delete("/products", validateQuery, deleteProduct);
-router.put("/products", validateQuery, updateProduct)
-
+router.delete("/products/:productId", deleteProduct);
+router.post("/products/:productId", updateProduct);
 export default router;
